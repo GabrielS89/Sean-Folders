@@ -12,7 +12,7 @@ public class CalculadoraCTS {
             for (int col = 0; col < 3; col++) {          // columnas
                 String texto = JOptionPane.showInputDialog(
                 null,
-                "Ingresa Elemento [" + (fila+1) + "][" + (col+1) + "] =" );
+                "Ingresa Elemento [" + (fila+1) + "][" + (col+1) + "] =" ); // ingresar elemento correspondiente a cada fila y columna
                 
                 Sistema[fila][col] = Double.parseDouble(texto);  }  
             
@@ -21,7 +21,7 @@ public class CalculadoraCTS {
             for (int i = 0; i < 3; i++) {
                 String texto = JOptionPane.showInputDialog(
                 null,
-                "Ingresa Término Independiente [" + (i+1) + "] =" );
+                "Ingresa Término Independiente [" + (i+1) + "] =" ); // ingresar termino independiente en orden (x, y, z)
                 
                 Independiente[i] = Double.parseDouble(texto); 
                 
@@ -40,7 +40,7 @@ public class CalculadoraCTS {
     double Dy = detSarrus(SistemaY);
     double Dz = detSarrus(SistemaZ);
  
-    double x = Dx / Determinante;
+    double x = Dx / Determinante; // metodo cramer para hallar x, y, z
     double y = Dy / Determinante;
     double z = Dz / Determinante;
                         
@@ -68,7 +68,7 @@ public class CalculadoraCTS {
     return nueva;
 }
    
-    static double detSarrus(double[][] e) {
+    static double detSarrus(double[][] e) { // metodo sarrus para conseguir determinantes
     return e[0][0]*e[1][1]*e[2][2]
          + e[0][1]*e[1][2]*e[2][0]
          + e[0][2]*e[1][0]*e[2][1]
