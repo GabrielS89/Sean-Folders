@@ -7,8 +7,7 @@ public class CalculadoraCTS {
     public static void main(String[] args) {
         double[][] Sistema       = new double[3][3];  
         double[]   Independiente = new double[3];     
-        double Determinante = detSarrus(Sistema);       
-        
+             
             for (int fila = 0; fila < 3; fila++) {          // filas
             for (int col = 0; col < 3; col++) {          // columnas
                 String texto = JOptionPane.showInputDialog(
@@ -16,6 +15,7 @@ public class CalculadoraCTS {
                 "Ingresa Elemento [" + (fila+1) + "][" + (col+1) + "] =" );
                 
                 Sistema[fila][col] = Double.parseDouble(texto);  }  
+            
     }
 
             for (int i = 0; i < 3; i++) {
@@ -24,18 +24,14 @@ public class CalculadoraCTS {
                 "Ingresa Término Independiente [" + (i+1) + "] =" );
                 
                 Independiente[i] = Double.parseDouble(texto); 
+                
     }  
 
-            
-            
-            
-     System.out.println(Arrays.deepToString(Sistema));
-
-      
-     
-     
+            double Determinante = detSarrus(Sistema);  
+                
+    System.out.println(Arrays.deepToString(Sistema));
+    System.out.println(Arrays.toString(Independiente));
           
-     
     double[][] SistemaX = reemplazarColumna(Sistema, Independiente, 0); // columna x
     double[][] SistemaY = reemplazarColumna(Sistema, Independiente, 1); // columna y
     double[][] SistemaZ = reemplazarColumna(Sistema, Independiente, 2); // columna z
@@ -43,21 +39,16 @@ public class CalculadoraCTS {
     double Dx = detSarrus(SistemaX);
     double Dy = detSarrus(SistemaY);
     double Dz = detSarrus(SistemaZ);
-     
  
     double x = Dx / Determinante;
     double y = Dy / Determinante;
     double z = Dz / Determinante;
-            
-            
+                        
         System.out.println(x);
         System.out.println(y);    
         System.out.println(z);
-
-             
-        
+                
     }
-
     
    static double[][] reemplazarColumna(double[][] matriz, double[] independientes, int columna) {
     double[][] nueva = new double[3][3];
@@ -76,11 +67,7 @@ public class CalculadoraCTS {
 
     return nueva;
 }
-
-
-
-    
-    
+   
     static double detSarrus(double[][] e) {
     return e[0][0]*e[1][1]*e[2][2]
          + e[0][1]*e[1][2]*e[2][0]
